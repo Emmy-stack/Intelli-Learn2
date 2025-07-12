@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelli-Learn</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="dark">
+
+    <nav class="navbar">
+        <div><img src="WhatsApp_Image_2025-07-05_at_10.41.20_AM-removebg-preview.png" alt="" style="width: 50px;"><span
+                class="logo">Intelli-Learn</span></div>
+        <ul class="nav-links">
+            <li><a href="#">
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" onclick="toggleDropdown()">
+                            Courses <span class="arrow">▼</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">O' level</a></li>
+                            <li><a href="#">A' level</a></li>
+                            <li><a href="#">CODING</a></li>
+                        </ul>
+                    </div>
+                </a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Help</a></li>
+            <li>
+                <div>
+                    <img src="pfp 6.jpeg" alt="pfp" onclick="registerPopup()" id="pfpic"></a>
+                    <!-- <a href="#"><button id="sign-in" onclick="registerPopup()">Sign in</button></a> -->
+                </div>
+            </li>
+            <li></li>
+        </ul>
+    </nav>
+    <iframe src="register.html" frameborder="0"
+        style=" height: 100%; width: 100%; z-index: 800; position: absolute; top: 11%; display: none; "
+        id="register"></iframe>
+
+
+    <div id="catch-phrase-sec">
+        <p class="catch-phrase">Unlock brilliance</p>
+        <p class="cp-section">with every click.</p>
+    </div>
+    <p class="intro">Learn the way geniuses do at your pace, on your terms, with Intelli-Learn.</p>
+    <p class="intro-part">From curiosity to mastery Intelli-Learn takes you every step of the way.</p>
+    <button id="start-button" class="start-button" onclick="registerPopup()">Start Winning →</button>
+
+
+    <div class="glow-wrapper">
+        <img src="Screenshot 2025-06-06 at 00.59.54.png" alt="Student-ID" class="glow-image" id="glowImage">
+    </div>
+
+    <div id="bicycle-wrapper">
+        <p id="bicycle" src="bicycle-rider.gif" alt="Bicycle Rider">🚴‍♂️</p>
+    </div>
+
+    <!--<div class="rocket" id="rocket">
+            🚀
+            <div class="trail" id="trail"></div>
+        </div>-->
+
+    <div class="learning-library-container">
+        <h1 class="main-heading">Our learning library</h1>
+        <p class="sub-heading">With thousands of digital and printable resources, find the best resource for your
+            student!
+        </p>
+        <button class="primary-action-button">Dive right in</button>
+
+        <div class="content-cards-grid">
+            <div class="feature-card">
+                <div class="icon-placeholder">📝</div>
+                <h2>Lesson Plans</h2>
+                <p>Free, ready-made lesson plans make it easy to provide meaningful, standards-aligned instruction in
+                    both
+                    classroom and homeschool settings.</p>
+                <button class="card-action-button blue-theme">Plan my lesson today</button>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-placeholder">📄</div>
+                <h2>Worksheets</h2>
+                <p>We've got a worksheet for anything your student is learning! Our printables make it easy to practice
+                    everything from handwriting to multiplication to sight words, and much more!</p>
+                <button class="card-action-button blue-theme">Check it out</button>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-placeholder">🎮</div>
+                <h2>Games</h2>
+                <p>Interactive and engaging games designed to make learning fun and effective, covering a wide range of
+                    subjects and skills.</p>
+                <button class="card-action-button purple-theme">Play a game</button>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-placeholder">✂️</div>
+                <h2>Activities</h2>
+                <p>Hands-on activities that foster creativity and critical thinking, perfect for individual exploration
+                    or
+                    group learning environments.</p>
+                <button class="card-action-button purple-theme">Discover activities</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="community-highlight-section">
+        <h2 class="section-main-heading">Join the Intelli-Learn community!</h2>
+
+        <div class="stats-overview-container">
+            <div class="stat-card-element">
+                <div class="stat-icon-area"></div>
+                <p class="stat-number-text">Community Chat <span class="stat-description-text">parents, teachers, and
+                        students
+                        served</span></p>
+            </div>
+
+            <div class="stat-card-element">
+                <div class="stat-icon-area"></div>
+                <p class="stat-number-text">AI <span class="stat-highlight-number">Powered Tutor</span> <span
+                        class="stat-description-text">Available 24/7</span></p>
+            </div>
+
+            <div class="stat-card-element">
+                <div class="stat-icon-area"></div>
+                <p class="stat-number-text">Library with <span class="stat-highlight-number">38,000</span> <span
+                        class="stat-description-text">educational resources</span></p>
+            </div>
+        </div>
+
+        <div class="testimonials-display-wrapper">
+            <div class="testimonial-bubble left-align-bubble">
+                <p>I love that it shows me the areas my child needs to improve on and directs me to resources to work
+                    with
+                    him on. It’s easy to understand and navigate to each area I need to go.</p>
+                <div class="author-info">Emmanuel A,<br><span class="author-title">parent and Intelli-Learn premium
+                        member</span></div>
+            </div>
+
+            <div class="testimonial-bubble right-align-bubble">
+                <p>Intelli-Learn has multiple resources organized for any learning tool you might need as a teacher,
+                    parent,
+                    and student, and I love the ability to be able to sort by grade, subject, enrichment, or type!</p>
+                <div class="author-info">Immanuel Chidozie<br><span class="author-title">2024 Nigeria Teacher of the
+                        Year</span>
+                </div>
+            </div>
+        </div>
+
+        <button class="call-to-action-read-more">Read more</button>
+    </div>
+
+
+    <div class="chat-community-highlight-section">
+        <h2 class="chat-section-main-heading">Join Intelli-Learn Chat Community!</h2>
+
+        <div class="chats-display-wrapper">
+            <div class="chat-bubble left-align-bubble">
+                <p>So, if photosynthesis creates glucose and oxygen, how do plants use that glucose?</p>
+                <div class="author-info">Godswill A,<br><span class="author-title">Intelli-Learn Student</span></div>
+            </div>
+
+            <div class="chat-bubble right-align-bubble">
+                <p>They use it as energy for growth and other cellular processes through cellular respiration, which is
+                    basically the
+                    reverse of photosynthesis.</p>
+                <div class="author-info">King D<br><span class="author-title">Intelli-Learn Student</span>
+                </div>
+            </div>
+        </div>
+        <button class="call-to-action-join-now">Join Now</button>
+    </div>
+
+    <div id="live-classes">
+        <div id="live-class" style="position: relative; top: 10%;">
+            <video controls autoplay muted playsinline>
+                <source src="I-lEARN AD.mp4" type="video/mp4">
+            </video>
+
+            <button id="live-button">Live Class</button>
+        </div>
+    </div>
+    <!-- here's the non functional footer version html -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p class="footer-text glow">Copyright &copy; 2025 <span class="neon-green">Intelli-Learn</span>.
+                    All
+                    rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="#" class="neon-green glow">Contact</a></li>
+                    <li><a href="#" class="neon-green glow">About</a></li>
+                    <li><a href="#" class="neon-green glow">Terms</a></li>
+                    <li><a href="#" class="neon-green glow">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        @media (prefers-color-scheme: light) {
+            body {
+                background-image: none;
+                background-color: white;
+                color: #000;
+            }
+
+            .cp-section {
+                color: #000;
+            }
+
+            .intro {
+                color: #000
+            }
+
+            .intro-part {
+                color: #000;
+            }
+
+            .navbar {}
+        }
+    </style>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

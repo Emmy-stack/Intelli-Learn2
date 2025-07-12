@@ -1,0 +1,932 @@
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+body {
+  min-height: 100vh;
+  justify-content: center;
+  display: flex;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  background-color: #01014a;
+}
+#main-content.blur {
+  filter: blur(8px);
+  transition: filter 0.3s ease;
+}
+
+/* Add this class to apply blur to the background */
+.blur {
+  filter: blur(8px);
+  transition: filter 0.3s ease;
+  pointer-events: none;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: rgb(18, 18, 28); /* Transparent black */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+}
+:root {
+  --bg: #111;
+  --text: #fff;
+  --button-bg: #0ff;
+  --button-text: #000;
+}
+
+[data-theme="light"] {
+  --bg: #fff;
+  --text: #000;
+  --button-bg: #007bff;
+  --button-text: #fff;
+}
+
+#theme-toggle {
+  background: var(--accent);
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #000;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #13679f, blue); /* Orange to pink */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* For Firefox */
+  color: transparent;
+  /*text-shadow: 0 0 10px #13609f, 0 0 20px #025a8d, 0 0 30px #025a8d;*/
+}
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  top: -3px;
+  background-color: rgb(18, 18, 28);
+  border: none;
+  padding: none;
+  color: rgb(127, 155, 177);
+  font-size: 1.1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* Rotated state */
+.arrow.rotate {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  display: none;
+  list-style: none;
+  background-color: rgb(18, 18, 28);
+  border-radius: 10px;
+  margin: 5px 0 0;
+  padding: 10px 0;
+  position: absolute;
+  width: 100%;
+  box-shadow: 0 0 10px #000;
+}
+
+.dropdown-menu li {
+  padding: 8px 20px;
+}
+
+.dropdown-menu li:hover {
+  background-color: #444;
+}
+#pfpic {
+  width: 45px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+#sign-in {
+  position: absolute;
+  left: 91.6%;
+  font-size: x-small;
+  top: 10px;
+  width: 45.2px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  justify-content: center;
+  border: 1px solid;
+  border-color: rgba(128, 128, 128, 0.496);
+  border-top: none;
+  color: rgb(0, 151, 181);
+  background-color: rgba(128, 128, 128, 0.7);
+  cursor: pointer;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+#sign-in:hover {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  border-radius: 20px;
+}
+#pfpic:hover #sign-in {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Show the menu */
+.dropdown-menu.show {
+  display: block;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 70px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgb(127, 155, 177);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.nav-links a:hover {
+  color: rgb(8, 155, 174);
+}
+
+/* 📱 Media Queries */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 15px;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    padding: 10px;
+    display: none;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.catch-phrase {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  font-size: 4rem;
+  width: 40%;
+  background: linear-gradient(
+    90deg,
+    rgb(127, 9, 190),
+    #13679f,
+    #138f9f
+  ); /* Orange to pink */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* For Firefox */
+  color: transparent;
+}
+.cp-section {
+  position: absolute;
+  color: rgb(210, 218, 226);
+  font-size: 4rem;
+  left: 5%;
+  top: 30%;
+}
+.intro {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  font-size: 1.2rem;
+  width: 47%;
+  color: rgb(210, 218, 226);
+}
+.intro-part {
+  position: absolute;
+  top: 54%;
+  left: 5%;
+  font-size: 1.2rem;
+  width: 47%;
+  color: rgb(210, 218, 226);
+}
+.start-button {
+  background-color: rgb(67, 16, 207);
+  border-color: none;
+  width: 12%;
+  height: 50px;
+  border-radius: 15px;
+  color: rgb(210, 218, 226);
+  font-size: 1rem;
+  left: 5%;
+  top: 70%;
+  cursor: pointer;
+  position: absolute;
+  transform: translateY(-50%);
+  /*z-index: 10;*/
+}
+#register,
+#start-button:active {
+  display: block;
+}
+
+.glow-image {
+  top: 40%;
+  left: 60%;
+  border-radius: 12px; /* optional */
+  box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.7); /* glowing effect */
+  transition: box-shadow 0.3s ease;
+  will-change: transform;
+  position: absolute;
+  z-index: 1;
+}
+#bicycle-wrapper {
+  position: absolute;
+  bottom: 0px;
+  left: 87%;
+  width: 120px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+#bicycle {
+  font-size: 80px;
+  width: 100%;
+  animation: pedalBounce 1s infinite ease-in-out;
+}
+
+@keyframes pedalBounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.learning-library-container {
+  position: absolute;
+  top: 800px;
+  width: 97%;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Main Heading and Sub-heading */
+.main-heading {
+  font-size: 3.2em;
+  background: linear-gradient(
+    90deg,
+    rgb(127, 9, 190),
+    #13679f,
+    #138f9f
+  ); /* Orange to pink */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* For Firefox */
+  color: transparent;
+  margin-bottom: 15px;
+}
+
+.sub-heading {
+  font-size: 1.2em;
+  color: rgb(210, 218, 226);
+  max-width: 700px;
+  margin: 0 auto 40px auto; /* Center and add space below */
+}
+
+/* Primary Action Button */
+.primary-action-button {
+  background-color: #6a5acd; /* Medium Slate Blue */
+  color: white;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 60px; /* Space below the button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.primary-action-button:hover {
+  background-color: #5b4bab;
+  transform: translateY(-2px);
+}
+
+/* Content Cards Grid */
+.content-cards-grid {
+  display: grid;
+  /* Set two columns with equal width, repeating twice */
+  grid-template-columns: repeat(
+    2,
+    0fr
+  ); /* This makes exactly two equal columns */
+  gap: 40px; /* Space between cards */
+  justify-content: center; /* Center the grid items if there's extra space */
+  align-items: start; /* Align items to the start of their grid area */
+}
+
+/* Add media query to revert to single column on small screens */
+@media (max-width: 768px) {
+  .content-cards-grid {
+    grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    gap: 20px;
+  }
+  /* ... rest of your existing media query styles ... */
+}
+
+/* Individual Feature Card */
+.feature-card {
+  width: 500px;
+  background-color: rgb(18, 18, 28);
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Placeholder Styling */
+.icon-placeholder {
+  font-size: 3em; /* Larger emoji/icon size */
+  margin-bottom: 20px;
+  color: #6a5acd; /* Icon color */
+  background-color: #e6e6fa; /* Light background for the icon */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+/* If you use Font Awesome, uncomment and adapt something like this:
+.icon-placeholder i {
+    font-size: 2.5em;
+    color: #6a5acd;
+}
+*/
+
+.feature-card h2 {
+  font-size: 1.8em;
+  color: white; /* Darker blue */
+  margin-bottom: 15px;
+}
+
+.feature-card p {
+  font-size: 1em;
+  color: rgb(210, 218, 226);
+  margin-bottom: 25px;
+  flex-grow: 1; /* Allows paragraphs to take up available space, pushing button down */
+}
+
+/* Card Action Button */
+.card-action-button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-action-button.blue-theme {
+  background-color: #4a90e2; /* A shade of blue */
+  color: white;
+}
+
+.card-action-button.blue-theme:hover {
+  background-color: #357bd8;
+  transform: translateY(-1px);
+}
+
+.card-action-button.purple-theme {
+  background-color: #8a2be2; /* BlueViolet */
+  color: white;
+}
+
+.card-action-button.purple-theme:hover {
+  background-color: #721edc;
+  transform: translateY(-1px);
+}
+
+/* For the wave-like line */
+/* This is a bit tricky to do purely with CSS for the exact shape.
+   It's often an SVG or a complex background-image.
+   Here's a simple, approximate way using a pseudo-element with a border.
+   For the exact look, you'd want to use an SVG.
+*/
+.learning-library-container::before {
+  content: "";
+  position: absolute;
+  top: 100px; /* Adjust vertical position */
+  left: 0;
+  width: 100px; /* Length of the visible part */
+  height: 50px; /* Height of the curve */
+  border-top-left-radius: 50px; /* Makes it curved */
+  transform: rotate(30deg); /* Tilt it */
+  opacity: 0.7;
+  z-index: -1; /* Send it behind content */
+}
+
+/* Container for the entire section */
+.community-highlight-section {
+  height: 850px;
+  width: 90%;
+  top: 2000px;
+  border-radius: 25px;
+  position: relative;
+  background-color: rgba(
+    106,
+    92,
+    205,
+    0.4
+  ); /* The dominant blue/purple background */
+  text-align: center;
+  color: white; /* Default text color for the section */
+  overflow: hidden; /* Important for containing speech bubble tails */
+
+  /* --- Add these lines for the frosted glass effect --- */
+  backdrop-filter: blur(10px) saturate(1.8); /* Adjust blur and saturation as desired */
+  -webkit-backdrop-filter: blur(10px) saturate(1.8); /* For Safari compatibility */
+}
+
+/* Main Heading of the Section */
+.section-main-heading {
+  font-size: 2.8em;
+  font-weight: bold;
+  margin-bottom: 50px; /* Space below the main heading */
+  color: #ffffff; /* Pure white */
+}
+
+/* Statistics Overview Container (Flexbox for horizontal layout) */
+.stats-overview-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Space between stat cards */
+  margin-bottom: 70px; /* Space between stats and testimonials */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Individual Statistic Card Element */
+.stat-card-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 280px; /* Control card width */
+  text-align: center;
+}
+
+.stat-icon-area {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Transparent white background for icon */
+  border-radius: 50%; /* Circular shape */
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Placeholder for actual icon */
+  font-size: 2em;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.4); /* Subtle border */
+}
+
+/* Text for the numbers/main stats */
+.stat-number-text {
+  font-size: 1.6em; /* Large number size */
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 5px;
+}
+
+/* Highlighted numbers (e.g., 20 countries, 38,000) */
+.stat-highlight-number {
+  color: #ffeb3b; /* A bright yellow for highlights */
+}
+
+/* Description text below the numbers */
+.stat-description-text {
+  font-size: 1em;
+  font-weight: normal;
+  color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Slightly transparent white for description */
+  display: block; /* Ensures it goes to the next line */
+}
+
+/* Testimonials Display Wrapper (Flexbox for horizontal layout) */
+.testimonials-display-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Space between testimonials */
+  margin-bottom: 60px; /* Space above the button */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  align-items: flex-end; /* Align bottom edges to match screenshot */
+}
+
+/* Individual Testimonial Bubble */
+.testimonial-bubble {
+  background-color: #ffffff;
+  color: #333; /* Dark text inside bubble */
+  padding: 30px;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  position: relative; /* For the speech bubble tail */
+  max-width: 450px; /* Max width for readability */
+  text-align: left; /* Text aligns left inside bubble */
+  margin-top: 20px; /* Provide some top margin for alignment */
+}
+
+/* Speech bubble tail for the left card */
+.testimonial-bubble.left-align-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: -15px; /* Position below the bubble */
+  left: 40px; /* Adjust based on where you want the tail to originate */
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #ffffff; /* Tail color matches bubble */
+}
+
+/* Speech bubble tail for the right card */
+.testimonial-bubble.right-align-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: -15px; /* Position below the bubble */
+  right: 40px; /* Adjust based on where you want the tail to originate */
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #ffffff; /* Tail color matches bubble */
+}
+
+.testimonial-bubble p {
+  font-size: 1em;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.author-info {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #6a5acd; /* Blue/purple for author name */
+}
+
+.author-title {
+  font-weight: normal;
+  color: #777;
+  display: block; /* Puts title on a new line */
+}
+
+/* Call to Action "Read more" Button */
+.call-to-action-read-more {
+  background-color: #00e676; /* Bright green */
+  color: #333; /* Dark text for contrast */
+  padding: 15px 45px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.call-to-action-read-more:hover {
+  background-color: #00c853; /* Darker green on hover */
+  transform: translateY(-2px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  .section-main-heading {
+    font-size: 2.2em;
+  }
+
+  .stats-overview-container {
+    gap: 20px;
+  }
+
+  .stat-card-element {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-overview-container {
+    flex-direction: column; /* Stack stats vertically */
+    align-items: center;
+  }
+
+  .stat-card-element {
+    margin-bottom: 30px; /* Space between stacked stats */
+  }
+
+  .testimonials-display-wrapper {
+    flex-direction: column; /* Stack testimonials vertically */
+    align-items: center;
+    gap: 40px; /* More space when stacked */
+  }
+
+  .testimonial-bubble {
+    max-width: 90%; /* Allow bubbles to take more width */
+  }
+
+  /* Adjust tail position for stacked bubbles */
+  .testimonial-bubble.left-align-bubble::before,
+  .testimonial-bubble.right-align-bubble::before {
+    left: 50%; /* Center the tail */
+    transform: translateX(-50%); /* Adjust for tail width */
+    right: auto; /* Reset right property */
+  }
+}
+
+@media (max-width: 480px) {
+  .section-main-heading {
+    font-size: 1.8em;
+  }
+
+  .stat-number-text {
+    font-size: 1.4em;
+  }
+
+  .testimonial-bubble {
+    padding: 20px;
+  }
+
+  .call-to-action-read-more {
+    padding: 12px 30px;
+    font-size: 1em;
+  }
+}
+.chat-community-highlight-section {
+  height: 750px;
+  width: 100%;
+  top: 3000px;
+  position: absolute;
+  text-align: center;
+  color: white; /* Default text color for the section */
+  overflow: hidden; /* Important for containing speech bubble tails */
+}
+
+/* Main Heading of the Section */
+.chat-section-main-heading {
+  left: 22%;
+  text-align: center;
+  position: absolute;
+  top: 6%;
+  font-size: 2.8em;
+  font-weight: bold;
+  margin-bottom: 50px; /* Space below the main heading */
+  background: linear-gradient(
+    90deg,
+    rgb(127, 9, 190),
+    #13679f,
+    #138f9f
+  ); /* Orange to pink */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* For Firefox */
+  color: transparent;
+}
+/* Chats Display Wrapper (Flexbox for horizontal layout) */
+.chats-display-wrapper {
+  left: 10%;
+  position: absolute;
+  top: 30%;
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Space between chats */
+  margin-bottom: 60px; /* Space above the button */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  align-items: flex-end; /* Align bottom edges to match screenshot */
+}
+
+/* Individual chat Bubble */
+.chat-bubble {
+  background-color: #ffffff;
+  color: #333; /* Dark text inside bubble */
+  padding: 30px;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  position: relative; /* For the speech bubble tail */
+  max-width: 450px; /* Max width for readability */
+  text-align: left; /* Text aligns left inside bubble */
+  margin-top: 0px; /* Provide some top margin for alignment */
+}
+
+/* Speech bubble tail for the left card */
+.chat-bubble.left-align-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: -15px; /* Position below the bubble */
+  left: 40px; /* Adjust based on where you want the tail to originate */
+  width: 0;
+  height: -30px;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #ffffff; /* Tail color matches bubble */
+}
+
+/* Speech bubble tail for the right card */
+.chat-bubble.right-align-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: -15px; /* Position below the bubble */
+  right: 40px; /* Adjust based on where you want the tail to originate */
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #ffffff; /* Tail color matches bubble */
+}
+
+.chat-bubble p {
+  font-size: 1em;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.author-info {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #6a5acd; /* Blue/purple for author name */
+}
+
+.author-title {
+  font-weight: normal;
+  color: #777;
+  display: block; /* Puts title on a new line */
+}
+/* Call to Action "Join Now" Button */
+.call-to-action-join-now {
+  left: 43%;
+  top: 75%;
+  position: absolute;
+  background-color: #00e676; /* Bright green */
+  color: #333; /* Dark text for contrast */
+  padding: 15px 45px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.call-to-action-join-now:hover {
+  background-color: #00c853; /* Darker green on hover */
+  transform: translateY(-2px);
+}
+video {
+  height: 600px;
+  width: 1050px;
+  position: absolute;
+  top: 3700px;
+  left: -1150px;
+  position: absolute;
+  background-image: url("Blue-gradient-bg.jpg"); /* Replace with your image file */
+  background-size: cover; /* Makes it fill the screen */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents tiling */
+}
+#live-button {
+  background-color: rgb(67, 16, 207);
+  border-color: none;
+  left: -350px;
+  width: 150px;
+  height: 50px;
+  border-radius: 15px;
+  color: rgb(210, 218, 226);
+  font-size: 1rem;
+  top: 4200px;
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+}
+
+/*THIS IS FOOTER FURTHER CSS GOES ABOVE THIS TEXT; */
+.footer {
+  position: absolute;
+  width: 100%;
+  top: 4500px;
+  background-color: rgb(18, 18, 28); /* dark background */
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-text {
+  font-size: 18px;
+  color: #fff; /* white text */
+  margin-bottom: 20px;
+}
+
+.neon-green {
+  color: rgb(0, 151, 181); /* neon green text */
+  text-shadow: 0 0 10px rgb(8, 155, 174), 0 0 20px rgb(8, 155, 174),
+    0 0 30px rgb(8, 155, 174); /* glow effect */
+}
+
+.glow {
+  transition: text-shadow 0.5s;
+}
+
+.glow:hover {
+  text-shadow: 0 0 20px rgb(8, 155, 174), 0 0 40px rgb(8, 155, 174),
+    0 0 60px rgb(8, 155, 174); /* increased glow effect on hover */
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-links li {
+  margin-right: 20px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  font-size: 18px;
+  color: rgb(8, 155, 174); /* neon green text */
+  transition: color 0.5s;
+}
+
+.footer-links a:hover {
+  color: #fff; /* white text on hover */
+  text-shadow: 0 0 10px rgb(8, 155, 174), 0 0 20px rgb(8, 155, 174),
+    0 0 30px rgb(8, 155, 174); /* glow effect on hover */
+}
