@@ -485,12 +485,12 @@ body {
     106,
     92,
     205,
-    0.4
+    alpha
   ); /* The dominant blue/purple background */
   text-align: center;
   color: white; /* Default text color for the section */
   overflow: hidden; /* Important for containing speech bubble tails */
-
+  opacity: 0.9;
   /* --- Add these lines for the frosted glass effect --- */
   backdrop-filter: blur(10px) saturate(1.8); /* Adjust blur and saturation as desired */
   -webkit-backdrop-filter: blur(10px) saturate(1.8); /* For Safari compatibility */
